@@ -14,7 +14,7 @@ const Home = () => {
         placeholder="NIP"
         control={control}
         rules={{
-          required: "Uzupełnij NIP",
+          required: "Uzupełnij NIP ",
           pattern: {
             value: NIP_REGEX,
             message: "Nieprawidłowy format",
