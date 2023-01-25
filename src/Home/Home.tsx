@@ -16,7 +16,7 @@ const Home = () => {
         rules={{
           required: "Uzupełnij NIP",
           pattern: {
-            value: new RegExp(NIP_REGEX),
+            value: NIP_REGEX,
             message: "Nieprawidłowy format",
           },
         }}
