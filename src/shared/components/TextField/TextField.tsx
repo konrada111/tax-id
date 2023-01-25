@@ -1,6 +1,6 @@
 import React from "react"
 import { FieldValues, RegisterOptions, useController } from "react-hook-form"
-import { Input, Wrapper } from "./TextField.style"
+import { ErrorMessage, Input, Wrapper } from "./TextField.style"
 
 export interface TextFieldProps {
   name: string
@@ -40,20 +40,23 @@ const TextField = ({
   })
 
   return (
-    <Wrapper
-      error={!!fieldState.error}
-      disabled={disabled}
-      className={className}
-    >
-      <Input
-        type={type}
+    <>
+      <Wrapper
+        error={!!fieldState.error}
         disabled={disabled}
-        value={field.value}
-        onChange={field.onChange}
-        onBlur={field.onBlur}
-        placeholder={placeholder}
-      />
-    </Wrapper>
+        className={className}
+      >
+        <Input
+          type={type}
+          disabled={disabled}
+          value={field.value}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          placeholder={placeholder}
+        />
+      </Wrapper>
+      <ErrorMessage>{fieldState.error?.message}</ErrorMessage>
+    </>
   )
 }
 

@@ -7,8 +7,8 @@ export const Wrapper = styled.div<{
 }>`
   display: flex;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
-  border-radius: 8px;
-  padding: 14px;
+  border-radius: ${rem(8)};
+  padding: ${rem(14)} ${rem(6)};
 `
 
 export const Input = styled.input`
@@ -19,6 +19,10 @@ export const Input = styled.input`
   padding: 0 ${rem(16)};
   background: transparent;
   height: 90%;
-  margin-top: 3px;
+  margin-top: ${rem(3)}
   border-radius: ${rem(6)};
+`
+export const ErrorMessage = styled.p`
+  ${font("Lato", 10, 400, 26)};
+  color: red;
 `
