@@ -5,7 +5,6 @@ export const getVat = async (vat_number: string) => {
     const { data } = await apiClient.get("", {
       params: { vat_number },
     })
-
     return data
   } catch (e) {
     console.log(e)
