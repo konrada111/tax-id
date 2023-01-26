@@ -1,30 +1,30 @@
 import React, { useEffect } from "react"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import Button from "shared/components/Button"
 import TextField from "shared/components/TextField"
 import { NIP_REGEX } from "shared/constants/regex"
 import { useDispatch, useSelector } from "react-redux"
-import { AppState } from "store/store"
+import store, { AppState } from "store/store"
 import { taxPayerActions } from "./redux/slice"
 
+export interface IFormInput {
+  vat_number: string
+}
+
 const Home = () => {
-  const { control } = useForm()
+  const { control, handleSubmit } = useForm<IFormInput>()
 
   const dispatch = useDispatch()
   const taxPayer = useSelector((state: AppState) => state.taxpayer)
 
-  useEffect(() => {
-    dispatch(taxPayerActions.fetchTaxPayer("LU26375245"))
-  }, [])
-
-  useEffect(() => {
-    console.log("taxPayer: ", taxPayer)
-  }, [taxPayer])
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    dispatch(taxPayerActions.fetchTaxPayer(data.vat_number))
+  }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        name="nip"
+        name="vat_number"
         placeholder="NIP"
         control={control}
         rules={{
@@ -35,8 +35,9 @@ const Home = () => {
           },
         }}
       />
-      <Button label="Szukaj" />
-    </div>
+      <h1>{taxPayer.data?.company_name}</h1>
+      <Button type="submit" label="Szukaj" />
+    </form>
   )
 }
 
