@@ -1,4 +1,4 @@
-import { AnyAction, createSlice } from "@reduxjs/toolkit"
+import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export type TaxPayerType = {
   valid: boolean
@@ -25,13 +25,21 @@ export const taxPayerSlice = createSlice({
   name: "taxPayer",
   initialState,
   reducers: {
-    fetchTaxPayer: (state, action) => {
-      state.data = action.payload
+    fetchTaxPayerSuccess: (state, { payload }: PayloadAction<TaxPayerType>) => {
+      state.data = payload
     },
-    fetchTaxFailure: (state) => {
+    fetchTaxPayerFailure: (state) => {
       state.isError = true
     },
   },
 })
 
-export const { fetchTaxPayer, fetchTaxFailure } = taxPayerSlice.actions
+const taxPayerActions = {
+  fetchTaxPayer: createAction<string>("taxPayer/fetchTaxPayer"),
+  fetchTaxPayerSuccess: createAction<TaxPayerType>(
+    "taxPayer/fetchTaxPayerSuccess"
+  ),
+  fetchTaxPayerFailure: createAction<string>("taxPayer/fetchTaxPayerFailure"),
+}
+
+export { taxPayerActions }

@@ -5,7 +5,7 @@ import TextField from "shared/components/TextField"
 import { NIP_REGEX } from "shared/constants/regex"
 import { useDispatch, useSelector } from "react-redux"
 import { AppState } from "store/store"
-import watchFetchTaxPayer from "./redux/saga"
+import { taxPayerActions } from "./redux/slice"
 
 const Home = () => {
   const { control } = useForm()
@@ -14,11 +14,11 @@ const Home = () => {
   const taxPayer = useSelector((state: AppState) => state.taxpayer)
 
   useEffect(() => {
-    dispatch(watchFetchTaxPayer("LU26375245"))
+    dispatch(taxPayerActions.fetchTaxPayer("LU26375245"))
   }, [])
 
   useEffect(() => {
-    console.log("tax", taxPayer)
+    console.log("taxPayer: ", taxPayer)
   }, [taxPayer])
 
   return (
