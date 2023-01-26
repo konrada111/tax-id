@@ -9,4 +9,5 @@ export const getVat = async (vat_number: string) => {
   } catch (e) {
     console.log(e)
   }
+  return
 }
