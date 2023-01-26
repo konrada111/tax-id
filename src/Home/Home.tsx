@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import Button from "shared/components/Button"
 import TextField from "shared/components/TextField"
 import { NIP_REGEX } from "shared/constants/regex"
 import { useDispatch, useSelector } from "react-redux"
-import store, { AppState } from "store/store"
+import { AppState } from "app/store"
 import { taxPayerActions } from "./redux/slice"
 
 export interface IFormInput {
