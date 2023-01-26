@@ -16,8 +16,6 @@ function* workerTaxPayer({ payload }: PayloadAction<string>) {
   }
 }
 
-function* watchFetchTaxPayer() {
+export default function* watchFetchTaxPayer() {
   yield takeEvery(taxPayerActions.fetchTaxPayer.type, workerTaxPayer)
 }
-
-export default watchFetchTaxPayer

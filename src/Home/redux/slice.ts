@@ -1,4 +1,5 @@
 import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { IFormInput } from "Home/Home"
 
 export type TaxPayerType = {
   valid: boolean
