@@ -4,8 +4,8 @@ import styled from "styled-components"
 export type ButtonVariants = "primary" | "secondary" | "tertiary"
 
 export const Wrapper = styled.button`
-  ${font("Lato", 13, 500, 28)}
-  padding: ${rem(6)} ${rem(14)};
+  ${font("Lato", 14, 500, 26)}
+  padding: ${rem(6)} ${rem(16)};
   border: none;
   border-radius: ${rem(8)};
   white-space: nowrap;
