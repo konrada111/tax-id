@@ -1,5 +1,4 @@
 import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { IFormInput } from "Home/Home"
 
 export type TaxPayerType = {
   valid: boolean
@@ -9,7 +8,7 @@ export type TaxPayerType = {
   country_code: string
   vat_number: string
   company_name: string
-  company_adress: string
+  company_address: string
 }
 
 interface ITaxPayerState {
@@ -27,6 +26,7 @@ export const taxPayerSlice = createSlice({
   initialState,
   reducers: {
     fetchTaxPayerSuccess: (state, { payload }: PayloadAction<TaxPayerType>) => {
+      console.log("payload", payload)
       state.data = payload
     },
     fetchTaxPayerFailure: (state) => {
