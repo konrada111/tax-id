@@ -6,6 +6,7 @@ export const Wrapper = styled.div<{
   disabled?: boolean
 }>`
   display: flex;
+  flex: 1;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
   border-radius: ${rem(8)};
   padding: ${rem(14)} ${rem(6)};
