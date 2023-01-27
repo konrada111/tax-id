@@ -15,13 +15,14 @@ const Row = ({ label, value, icon }: RowProps) => {
     <Wrapper>
       <IconWrapper>
         <FontAwesomeIcon
+          data-testid="row-icon"
           style={{ width: "40px" }}
           color={theme.colors.primary}
           icon={icon}
         />
-        <Label>{label}</Label>
+        <Label data-testid="row-label">{label}</Label>
       </IconWrapper>
-      <Value>{value}</Value>
+      <Value data-testid="row-value">{value}</Value>
     </Wrapper>
   )
 }
