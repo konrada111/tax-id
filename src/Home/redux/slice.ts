@@ -26,7 +26,6 @@ export const taxPayerSlice = createSlice({
   initialState,
   reducers: {
     fetchTaxPayerSuccess: (state, { payload }: PayloadAction<TaxPayerType>) => {
-      console.log("payload", payload)
       state.data = payload
     },
     fetchTaxPayerFailure: (state) => {
