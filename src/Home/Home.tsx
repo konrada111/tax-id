@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import TextField from "shared/components/TextField"
 import { NIP_REGEX } from "shared/constants/regex/nip"
@@ -31,32 +31,27 @@ import { ErrorMessage } from "shared/components/TextField/TextField.style"
 import { useLocalStorage } from "shared/hooks/useLocalStorage"
 import ReacentSearch from "shared/components/RecentSearch/RecentSearch"
 
-export interface IFormInput {
+export type FormInputType = {
   vat_number: string
 }
 
 const Home = () => {
-  const { control, handleSubmit } = useForm<IFormInput>()
+  const { control, handleSubmit } = useForm<FormInputType>()
 
   const dispatch = useDispatch()
   const taxPayer = useSelector((state: AppState) => state.taxpayer)
 
   const localData = useLocalStorage<TaxPayerType[]>("taxPayers", [])
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<FormInputType> = (data) => {
     dispatch(taxPayerActions.fetchTaxPayer(data.vat_number))
   }
-
-  useEffect(() => {
-    console.log("local", localData)
-  }, [localData])
 
   return (
     <Wrapper>
       <LeftSide>
         <Image src={girl} alt="girl" />
       </LeftSide>
-
       <FormWrapper>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <TextField
