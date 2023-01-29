@@ -17,6 +17,12 @@ REACT_APP_PRIVATE_KEY= key from api
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+Example value to pass into input: 
+```
+LU26375245
+```
+
+
 
 Stack: 
 
