@@ -29,7 +29,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { ErrorMessage } from "shared/components/TextField/TextField.style"
 import { useLocalStorage } from "shared/hooks/useLocalStorage"
-import ReacentSearch from "shared/components/ReacentSearch/ReacentSearch"
+import ReacentSearch from "shared/components/RecentSearch/RecentSearch"
 
 export interface IFormInput {
   vat_number: string
