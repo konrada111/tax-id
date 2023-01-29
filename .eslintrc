@@ -26,7 +26,6 @@
     }
   },
   "rules": {
-    "@typescript-eslint/no-explicit-any": 1,
     "import/no-anonymous-default-export": 0,
     "react-hooks/exhaustive-deps": 0,
     "@typescript-eslint/no-inferrable-types": 0,

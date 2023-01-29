@@ -1,5 +1,13 @@
 import { createAction, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+export type TaxPayerError = {
+  error: {
+    code: number
+    type: string
+    info: string
+  }
+}
+
 export type TaxPayerType = {
   valid: boolean
   database: string
@@ -13,12 +21,12 @@ export type TaxPayerType = {
 
 interface ITaxPayerState {
   data?: TaxPayerType
-  isError: boolean
+  error: string | null
 }
 
 const initialState: ITaxPayerState = {
   data: undefined,
-  isError: false,
+  error: null,
 }
 
 export const taxPayerSlice = createSlice({
@@ -27,9 +35,10 @@ export const taxPayerSlice = createSlice({
   reducers: {
     fetchTaxPayerSuccess: (state, { payload }: PayloadAction<TaxPayerType>) => {
       state.data = payload
+      state.error = null
     },
-    fetchTaxPayerFailure: (state) => {
-      state.isError = true
+    fetchTaxPayerFailure: (state, { payload }: PayloadAction<string>) => {
+      state.error = payload
     },
   },
 })
