@@ -41,7 +41,7 @@ const Home = () => {
   const dispatch = useDispatch()
   const taxPayer = useSelector((state: AppState) => state.taxpayer)
 
-  const localData = useLocalStorage<TaxPayerType[]>("taxPayers", [])
+  const localData = useLocalStorage<TaxPayerType[]>("taxPayers", [], taxPayer)
 
   const onSubmit: SubmitHandler<FormInputType> = (data) => {
     dispatch(taxPayerActions.fetchTaxPayer(data.vat_number))
