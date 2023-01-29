@@ -2,7 +2,7 @@ import React from "react"
 import { ComponentStory } from "@storybook/react"
 import TextField from "./TextField"
 import { useForm } from "react-hook-form"
-import { NIP_REGEX } from "shared/constants/regex"
+import { NIP_REGEX } from "shared/constants/regex/nip"
 
 export default {
   title: "Forms/TextField",
